@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1036784537000",
+    "firebase_url": "https://adopt-me-374910-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "adopt-me-374910",
+    "storage_bucket": "adopt-me-374910.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036784537000:android:4a54486732f803211ee19d",
+        "android_client_info": {
+          "package_name": "com.example.adopt_meandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036784537000-br49k8jphl7iqohhr8duv8b2fb5ndh9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlWOxCyOSnyLLO2ep0w93m7sl2PH4GIiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036784537000-br49k8jphl7iqohhr8duv8b2fb5ndh9p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1036784537000-2t0gv87ugthttq6fe41t5osnpeahsd6n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "Adopt-Me"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
