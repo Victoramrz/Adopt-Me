@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun simulaTarea() {
         try{
-            Thread.sleep(500);
+            Thread.sleep(100);
         }catch (e: InterruptedException) {}
     }
     inner class TareaProgreso: AsyncTask<Void, Int, Void>(){
@@ -43,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onPostExecute(result: Void?) {
-            val conector = Intent(this@MainActivity, Login::class.java)
-            startActivity(conector);
+            val connector = Intent(this@MainActivity, Login::class.java)
+            startActivity(connector);
         }
 
         override fun onCancelled() {
