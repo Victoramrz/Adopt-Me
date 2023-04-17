@@ -30,7 +30,6 @@ class Login : AppCompatActivity() {
                 password= passwordbox.text.toString().trim()
                 auten.signInWithEmailAndPassword(email,password).addOnCompleteListener(this){
                     if (it.isSuccessful){
-                        showMessage("Usario existente")
                         `login-user`()
                     }else{
                         showMessage("El email o la contraseña estan mal")
@@ -46,7 +45,6 @@ class Login : AppCompatActivity() {
                 password= passwordbox.text.toString().trim()
                 auten.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this){
                     if (it.isSuccessful){
-                        showMessage("Usario creado correctamente")
                         `login-user`()
                     }else{
                         showMessage("Error al crear el usuario")
