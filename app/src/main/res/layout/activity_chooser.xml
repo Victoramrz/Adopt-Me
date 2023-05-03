@@ -53,16 +53,18 @@
         app:srcCompat="@drawable/heart" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/namebox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="Ainhoa"
-        android:textColor="@color/white"
+        android:layout_marginStart="183dp"
+        android:layout_marginEnd="183dp"
+        android:layout_marginBottom="243dp"
+        android:text="@string/loading"
+        android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/PetPhoto"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/PetPhoto" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PetPhoto" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

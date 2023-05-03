@@ -13,7 +13,7 @@ class Login : AppCompatActivity() {
     private lateinit var email: String
     private lateinit var password: String
     private lateinit var auten: FirebaseAuth
-
+    lateinit var user_id: String
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +45,7 @@ class Login : AppCompatActivity() {
                 password= passwordbox.text.toString().trim()
                 auten.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this){
                     if (it.isSuccessful){
+                        createLikeList()
                         `login-user`()
                     }else{
                         showMessage("Error al crear el usuario")
@@ -55,9 +56,16 @@ class Login : AppCompatActivity() {
             }
         }
     }
+
+    private fun createLikeList() {
+
+    }
+
     private fun `login-user`() {
+        user_id = FirebaseAuth.getInstance().getCurrentUser()?.getUid().toString()
         val connector = Intent(this@Login, Chooser::class.java)
-        startActivity(connector);
+        connector.putExtra("user_id", user_id)
+        startActivity(connector)
     }
     private fun showMessage(message: String) {
         Toast.makeText(this@Login,"${message}", Toast.LENGTH_LONG).show()
