@@ -1,9 +1,11 @@
 package com.example.adopt_meandroid
 
 import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageButton
@@ -13,6 +15,7 @@ import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Chooser : AppCompatActivity() {
     lateinit var imageView: ImageView
@@ -20,6 +23,7 @@ class Chooser : AppCompatActivity() {
     val db = FirebaseFirestore.getInstance()
     val pets = db.collection("Mascotas")
     lateinit var user_id: String
+    lateinit var pet_id_show: String
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,14 +37,28 @@ class Chooser : AppCompatActivity() {
         namebox = findViewById<TextView>(R.id.namebox)
         NextPet()
         btheart.setOnClickListener(){
-            SendInfo()
-            NextPet()
+            addLike()
         }
         btcross.setOnClickListener(){
             NextPet()
         }
     }
 
+    private fun addLike() {
+        val db = FirebaseFirestore.getInstance()
+        val LikeList = db.collection("LikeList").document(user_id)
+        LikeList.get().addOnSuccessListener { documentSnapshot ->
+            if (documentSnapshot.exists()) {
+                val currentArray = documentSnapshot.get("pet_id") as ArrayList<String>
+                currentArray.add(pet_id_show)
+                LikeList.set(mapOf("pet_id" to currentArray))
+                    .addOnSuccessListener { Log.d(TAG, "Documento actualizado") }
+                    .addOnFailureListener { e -> Log.e(TAG, "Error al actualizar documento", e) }
+            }
+        }
+        SendInfo()
+        NextPet()
+    }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         super.onCreateOptionsMenu(menu)
         menuInflater.inflate(R.menu.menu, menu)
@@ -64,7 +82,8 @@ class Chooser : AppCompatActivity() {
         pets.get().addOnSuccessListener { documents ->
             val count = documents.size()
             val cantidad = (1..count).random()
-            pets.document("A000"+cantidad).get().addOnSuccessListener {
+            pet_id_show=("A000"+cantidad)
+            pets.document(pet_id_show).get().addOnSuccessListener {
                 if (it.exists()){
                     Picasso.get()
                         .load(it.get("Foto").toString())
@@ -72,11 +91,10 @@ class Chooser : AppCompatActivity() {
                         .centerCrop()
                         .into(imageView)
                     namebox.text =it.get("Nombre").toString()
+                    pet_id_show = it.id
                 }
             }
         }
-
-
     }
 
     private fun SendInfo() {

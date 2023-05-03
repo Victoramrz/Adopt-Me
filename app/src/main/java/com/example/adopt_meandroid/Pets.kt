@@ -8,5 +8,4 @@ class Pets(){
         this.pet_name = pet_name
         this.pet_race = pet_race
     }
-
 }
