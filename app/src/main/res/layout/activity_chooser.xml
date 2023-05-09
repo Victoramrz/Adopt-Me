@@ -23,34 +23,35 @@
 
     <ImageButton
         android:id="@+id/btcross"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/dislikebutton"
         android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PetPhoto"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/cross"
+        app:layout_constraintTop_toBottomOf="@+id/namebox"
         tools:ignore="ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
     <ImageButton
         android:id="@+id/btheart"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="88dp"
-        android:contentDescription="@string/todo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/likebutton"
+        android:contentDescription="@string/Like"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btcross"
-        app:layout_constraintTop_toBottomOf="@+id/PetPhoto"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/heart" />
+        app:layout_constraintTop_toBottomOf="@+id/namebox" />
 
     <TextView
         android:id="@+id/namebox"
